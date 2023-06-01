@@ -5,7 +5,7 @@ on:
             - master
             - dev
 env: # workflow레벨
-    MONGODB_DB_NAME: udemy-gh
+    MONGODB_DB_NAME: gha-demo
 jobs:
     test:
         environment: testing # github 레포지토리 설정 environment
