@@ -9,13 +9,15 @@ env: # workflow레벨
 jobs:
     test:
         environment: testing # github 레포지토리 설정 environment
+        runs-on: ubuntu-latest
+        container:
+            image: node:16 # 이렇게 하면 밑의 작업들이 도커환경에서 실행
         env:
             MONGODB_CONNECTION_PROTOCOL: mongodb+srv
             MONGODB_CLUSTER_ADDRESS: cluster0.chatoev.mongodb.net
             MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
             MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
             PORT: 8080
-        runs-on: ubuntu-latest
         steps:
             - name: Get Code
               uses: actions/checkout@v3
